@@ -1,0 +1,8 @@
+# Dependency directory
+node_modules
+
+# Web Storm directory
+.idea
+
+#code source example ignore
+code

@@ -6,3 +6,14 @@ node_modules
 
 #code source example ignore
 code
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# visual studio files
+/typings
+bin/*.dll
+/.vs
+/obj

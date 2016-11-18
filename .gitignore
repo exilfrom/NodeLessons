@@ -17,3 +17,6 @@ npm-debug.log*
 bin/*.dll
 /.vs
 /obj
+
+*.pem
+*.cnf

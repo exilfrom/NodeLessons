@@ -1,0 +1,8 @@
+{
+  "name": "testApi",
+  "version": "0.0.1",
+  "description": "test api for get user list and user by id",
+  "dependencies":{
+    "mongodb": "~2.2.11"
+  }
+}

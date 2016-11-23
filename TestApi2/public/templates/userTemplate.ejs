@@ -1,0 +1,20 @@
+<% if (users.length) { %>
+<table>
+    <tr>
+        <!--<td>UserID</td>-->
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Email</td>
+    </tr>
+<% users.forEach(function(user) { %>
+    <tr>
+        <!--<td><%= user._id %></td>-->
+        <td><%= user.firstName %></td>
+        <td><%= user.lastName %></td>
+        <td><%= user.email %></td>
+    </tr>
+<% })%>
+</table>
+<%}else{%>
+<p>Users not found :(</p>
+<%}%>

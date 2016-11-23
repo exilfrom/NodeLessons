@@ -6,5 +6,22 @@
 </head>
 <body>
 <h2>Welcome to Test API 2</h2>
+<div id="result"></div>
+<input type="button" value="Get User" id="getUser"/>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="js/ejs.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#getUser').on('click', function(){
+            $.get('/templates/userTemplate.ejs', function(template){
+                var func = ejs.compile(template);
+                $.get('/api/users', function(users){
+                    var html = func({users:users});
+                    $('#result').html(html);
+                });
+            })
+        });
+    });
+</script>
 </body>
 </html>

@@ -67,14 +67,7 @@ router.get('/users/:id', function(req, res, next){
     }
     UserModel.findById(id, function(err, user){
         if(err) return next(err);
-        if(user){
-            res.json(user);
-        } else {
-            var err = new Error('with this id not found');
-            err.status = 404;
-            return next(err);
-        }
-        //res.json(user ? user : {result: 'User with this id not found'});
+        res.json(user);
     });
 });
 

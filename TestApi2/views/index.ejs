@@ -1,27 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/css/style.css' />
 </head>
-<body>
+<body ng-cloak>
 <h2>Welcome to Test API 2</h2>
+<div ng-controller="indexController">
+    <div class="userList" ng-if="!currentUser">
+        <table ng-if="users.length != 0">
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td colspan="2">Email</td>
+            </tr>
+            <tr ng-repeat="user in users">
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td> <a ng-click="showUser(user._id)">View</a></td>
+            </tr>
+        </table>
+        <h3 ng-if="users.length == 0">Users list is empty</h3>
+        <input type="button" value="Get User" id="getUser" ng-click="getUserList()"/>
+    </div>
+    <div class="userDetails" ng-if="currentUser">
+        <table>
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Email</td>
+            </tr>
+            <tr>
+                <td>{{currentUser.firstName}}</td>
+                <td>{{currentUser.lastName}}</td>
+                <td>{{currentUser.email}}</td>
+            </tr>
+        </table>
+        <a ng-click="back()">Back</a>
+    </div>
+</div>
 <div id="result"></div>
-<input type="button" value="Get User" id="getUser"/>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<script src="js/ejs.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#getUser').on('click', function(){
-            $.get('/templates/userTemplate.ejs', function(template){
-                var func = ejs.compile(template);
-                $.get('/api/users', function(users){
-                    var html = func({users:users});
-                    $('#result').html(html);
-                });
-            })
-        });
-    });
-</script>
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/services/user-service.js"></script>
+<script src="js/controllers/index.js"></script>
 </body>
 </html>

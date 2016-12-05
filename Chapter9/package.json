@@ -7,9 +7,12 @@
   },
   "dependencies": {
     "bcrypt": "^0.8.7",
+    "body-parser": "^1.13.3",
     "debug": "~2.2.0",
     "ejs": "~2.5.2",
+    "cookie-parser": "^1.4.3",
     "express": "~4.14.0",
+    "express-session": "^1.13.0",
     "mongoose": "~4.6.8",
     "morgan": "~1.7.0"
   }

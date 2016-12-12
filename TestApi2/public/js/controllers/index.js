@@ -5,9 +5,13 @@
 
 angular
     .module('app')
-    .controller('indexController', indexController);
+    .controller('indexController', indexController)
+    .controller('userListController', userListController)
+    .controller('userDetailsController', userDetailsController);
 
 indexController.$inject = ['$scope', '$user'];
+userDetailsController.$inject = ['$scope', '$user','$routeParams'];
+userListController.$inject = ['$scope', '$user'];
 
 function indexController ($scope, $user) {
     $scope.users = [];
@@ -32,4 +36,33 @@ function indexController ($scope, $user) {
     }
 }
 
+function userListController($scope, $user){
+    $scope.users = [];
 
+    /*$scope.getUserList = function () {
+        $user.getList()
+            .success(function (users) {
+                $scope.users = users;
+            });
+    }*/
+
+    function getUserList() {
+        $user.getList()
+            .success(function (users) {
+                $scope.users = users;
+            });
+    }
+    getUserList();
+}
+
+function userDetailsController($scope, $user, $routeParams){
+    $scope.currentUser = null;
+    var id = $routeParams["userId"];
+    function init (){
+        $user.getById(id)
+            .success(function(user){
+                $scope.currentUser = user;
+            });
+    }
+    init();
+}

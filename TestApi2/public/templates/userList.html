@@ -1,0 +1,17 @@
+<div class="userList" data-ng-controller="userListController">
+    <table ng-if="users.length != 0">
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td colspan="2">Email</td>
+        </tr>
+        <tr ng-repeat="user in users">
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td> <a href="/users/{{user._id}}">View</a></td>
+        </tr>
+    </table>
+    <h3 ng-if="users.length == 0">Users list is empty</h3>
+   <!-- <input type="button" value="Get User" id="getUser" ng-click="getUserList()"/>-->
+</div>

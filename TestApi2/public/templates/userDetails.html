@@ -1,0 +1,16 @@
+<div class="userDetails" data-ng-controller="userDetailsController">
+    <table ng-if="currentUser">
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+        </tr>
+        <tr>
+            <td>{{currentUser.firstName}}</td>
+            <td>{{currentUser.lastName}}</td>
+            <td>{{currentUser.email}}</td>
+        </tr>
+    </table>
+    <p ng-if="!currentUser">No user found</p>
+    <a href="/users">Back</a>
+</div>

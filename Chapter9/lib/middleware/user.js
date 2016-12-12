@@ -12,7 +12,7 @@ module.exports = function(req, res, next){
 
         if (err) return next(err);
 // Экспонируем данные пользователя объекту ответа
-        req.user = res.locals.user = user.email;
+        req.user = res.locals.user = user;
         next();
     });
 };

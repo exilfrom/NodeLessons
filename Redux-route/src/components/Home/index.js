@@ -2,7 +2,7 @@
  * Created by Odin on 21.12.2016.
  */
 import React, {Component } from 'react';
-import { browserHistory } from 'react-router';
+//import { browserHistory } from 'react-router';
 
 export default class Home extends Component{
     render(){

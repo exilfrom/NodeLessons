@@ -1,13 +1,13 @@
 import React, {Component, PropTypes} from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router';
-//import { getUserList } from '../actions/UserActions'
+import { getUserList } from '../actions/UserActions'
 
 class UserList extends Component{
-    /*componentDidMount() {
+    componentDidMount() {
         const { dispatch } = this.props
         dispatch(getUserList())
-    }*/
+    }
     render(){
         const { loading, userList, error } = this.props;
         if (loading) { return (<div>Loading</div>) }

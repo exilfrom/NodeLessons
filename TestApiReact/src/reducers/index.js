@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
+import userList from './user-list';
 import user from './user';
-//import popup from './popup';
 
 export const rootReducer = combineReducers({
-    user//,
-    //popup
+    userList,
+    user
 })

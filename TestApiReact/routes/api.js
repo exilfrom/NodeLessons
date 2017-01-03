@@ -56,7 +56,6 @@ router.get('/users/', function(req, res, next){
 
 router.get('/users/:id', function(req, res, next){
     var id = req.params.id;
-    //console.log('ID is valid: ' + isValidObjectID(id));
     if(!isValidObjectID(id)){
         var err = new Error('ID is not valid');
         err.status = 400;
